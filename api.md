@@ -29,8 +29,8 @@ Response
  POST/api/users/
  Request
  {
-   "first_name": <USER INPUT>,
-   "last_name": <USER INZPUT>
+   "first_name": <"USER INPUT">,
+   "last_name": <"USER INZPUT">
  }
 
  Response
@@ -38,8 +38,8 @@ Response
    "success": true,
    "data": {
      "id: <ID>,
-     "first_name": <USER INPUT FOR FIRST_NAME>,
-     "last_name": <USER INPUT FOR LAST_NAME>,
+     "first_name": <"USER INPUT FOR FIRST_NAME">,
+     "last_name": <"USER INPUT FOR LAST_NAME">,
      "restaurants": []
    }
  }
@@ -51,8 +51,8 @@ Response
  {
    "success": true,
    "data": {
-     "id: <ID>,
-     "first_name": <USER INPUT FOR FIRST_NAME>,
+     "id: <"ID">,
+     "first_name": <"USER INPUT FOR FIRST_NAME">,
      "last_name": <USER INPUT FOR LAST_NAME>,
      "restaurants": [<SERIALIZED RESTAURANT>, ...]
    }
