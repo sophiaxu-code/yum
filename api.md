@@ -12,13 +12,13 @@ Response
         "id": 1,
         "first_name": "Michelle",
         "last_name": "Obama",
-        "restaurants": [ "<SERIALIZED RESTAURANT>", ...]
+        "restaurants": [ <"SERIALIZED RESTAURANT">, ...]
       },
       {
         "id": 2,
         "first_name": "Thomas",
         "last_name": "Jefferson",
-        "restaurants" ["<SERIALIZED RESTAURANT>", ...]
+        "restaurants" [<"SERIALIZED RESTAURANT">, ...]
       }
     ]
 
@@ -30,7 +30,7 @@ Response
  Request
  {
    "first_name": <"USER INPUT">,
-   "last_name": <"USER INZPUT">
+   "last_name": <"USER INPUT">
  }
 
  Response
