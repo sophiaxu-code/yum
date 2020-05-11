@@ -112,9 +112,6 @@ def add_location_to_restaurant(city, state, zipcode, restaurant_id):
     location = _get_or_create_location(city, state, zipcode, restaurant_id)
     restaurant.locations.append(location)
     db.session.commit()
-    location_json = location.serialize()
-    restaurants = []
-    for r in location.restaurants:
-        restaurants.append(r.serialize())
-    location_json['restaurants'] = restaurants
-    return location_json
+    return Restaurant.query.filter_by(id = restaurant_id).first().serialize()
+
+
