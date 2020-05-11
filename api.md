@@ -38,7 +38,7 @@ Response
    "success": true,
    "data": {
      "id: <ID>,
-     "first_name": <"USER INPUT FOR FIRST_NAME">,
+     "first_name": "<USER INPUT FOR FIRST_NAME>",
      "last_name": <"USER INPUT FOR LAST_NAME">,
      "restaurants": []
    }
