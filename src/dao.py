@@ -1,6 +1,7 @@
 from db import db, Restaurant, Location, User
 
 def get_all_users():
+
     return [u.serialize() for u in User.query.all()]
 
 def create_user(first_name,last_name):
@@ -54,18 +55,13 @@ def get_restaurants_by_user_id(user_id):
     user = User.query.filter_by (id = user_id).first()
     if user is None:
         return None
-    return [s.serialize() for s in user.restaurants]
+    return [r.serialize() for r in user.restaurants]
 
 def get_user_restaurants_by_price_level(user_id, price_level):
     user = User.query.filter_by (id = user_id).first()
     if user is None:
         return None
-    restaurants = []
-    for s in user.restaurants:
-        if s.price_level == price_level:
-            restaurants.append(s)
-    return [r.serialize() for r in restaurants]
-
+    return [r.serialize() for r in user.restaurants if r.price_level == price_level]
 
 def assign_restaurant_to_user(name, cuisine, price_level, user_id):
     user = User.query.filter_by (id = user_id).first()
@@ -77,7 +73,17 @@ def assign_restaurant_to_user(name, cuisine, price_level, user_id):
     return user.serialize()
 
 def get_all_locations():
-    return [l.serialize() for l in Location.query.all()]
+    serialized_locations = []
+    for l in Location.query.all():
+        serial_location = l.serialize()
+        serial_location['restaurants'] = []
+        for r in l.restaurants:
+            serial_restaurant = r.serialize()
+            del serial_restaurant['locations']
+            serial_location['restaurants'].append(serial_restaurant)
+        serialized_locations.append(serial_location)
+    return serialized_locations
+
 
 def _get_or_create_location(city, state, zipcode, restaurant_id ):
     location = Location.query.filter_by(zipcode = zipcode).first()
@@ -98,12 +104,13 @@ def get_location_by_id(location_id):
     if location is None:
         return None
     db.session.commit()
-    location_json = location.serialize()
-    restaurants = []
+    serial_location = location.serialize()
+    serial_location['restaurants'] = []
     for r in location.restaurants:
-        restaurants.append(r.serialize())
-    location_json['restaurants'] = restaurants
-    return location_json
+        serial_restaurant = r.serialize()
+        del serial_restaurant['locations']
+        serial_location['restaurants'].append(serial_restaurant)
+    return serial_location
 
 def add_location_to_restaurant(city, state, zipcode, restaurant_id):
     restaurant = Restaurant.query.filter_by(id = restaurant_id).first()
@@ -113,5 +120,3 @@ def add_location_to_restaurant(city, state, zipcode, restaurant_id):
     restaurant.locations.append(location)
     db.session.commit()
     return Restaurant.query.filter_by(id = restaurant_id).first().serialize()
-
-

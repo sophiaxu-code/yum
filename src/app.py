@@ -18,8 +18,7 @@ def success_response(data, code=200):
     return json.dumps({"success":True, "data": data}),code
 
 def failure_response(message, code=404):
-    return json.dumps({"success":False, "error":message}),code
-
+    return json.dumps({"success":False, "error": message}),code
 
 @app.route('/api/users/', methods = ['GET'])
 def get_users():

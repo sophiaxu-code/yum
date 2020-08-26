@@ -30,6 +30,8 @@ class Restaurant(db.Model):
             'cuisine': self.cuisine,
             'price_level': self.price_level,
             'locations': [s.serialize() for s in self.locations],
+
+
         }
 
 class Location(db.Model):
@@ -38,7 +40,7 @@ class Location(db.Model):
     city = db.Column(db.String, nullable = False)
     state = db.Column(db.Integer, nullable = False)
     zipcode = db.Column(db.Integer, nullable = False)
-    restaurants = db.relationship('Restaurant', secondary=association_table, back_populates='locations')
+    restaurants = db.relationship('Restaurant', secondary = association_table, back_populates = 'locations')
 
     def __init__(self, **kwargs):
         self.city = kwargs.get('city', False)
@@ -51,14 +53,13 @@ class Location(db.Model):
         'city': self.city,
         'state': self.state,
         'zipcode': self.zipcode,
-        'restaurants': []
         }
 
 class User(db.Model):
     __tablename__ = 'user'
-    id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String, nullable=False)
-    last_name = db.Column(db.String, nullable=False)
+    id = db.Column(db.Integer, primary_key = True)
+    first_name = db.Column(db.String, nullable = False)
+    last_name = db.Column(db.String, nullable = False)
     restaurants = db.relationship('Restaurant', cascade = 'delete')
 
     def __init__(self, **kwargs):
