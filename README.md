@@ -306,7 +306,7 @@ Response
          "id": 1,
             "name": "McDonald's",
             "cuisine": "American",
-            "price_level": <price_level>,
+            "price_level": "<price_level>",
             "locations": [
                 {
                    "id": 1,
@@ -408,6 +408,7 @@ Response
                     "zipcode": "<USER INPUT FOR ZIPCODE>"
                  }
                  "..."
+            ]
           }
 }
 ```
