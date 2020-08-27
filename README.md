@@ -26,7 +26,7 @@ python app.py
 ### Get all users
 `GET`  `/api/users/`
 ```json
-Response 
+Response
 
 {
     "success": true,
@@ -42,7 +42,7 @@ Response
                     "cuisine": "American",
                     "price_level": 5,
                     "locations": [
-                        { 
+                        {
                            "id": 1,
                            "city": "Boston",
                            "state": "Massachusetts",
@@ -50,7 +50,7 @@ Response
                         }
                         "..."
                     ]
-                     
+
                   }
                   "..."               
             ]
@@ -71,7 +71,7 @@ Request
 }
 ```
 ```json
-Response 
+Response
 
 {
     "success": true,
@@ -86,7 +86,7 @@ Response
                   "cuisine": "American",
                   "price_level": 5,
                   "locations": [
-                      { 
+                      {
                          "id": 1,
                          "city": "Boston",
                          "state": "Massachusetts",
@@ -102,13 +102,13 @@ Response
 
 
 
-  
+
 ```
 
 ### Get a specific user
 `GET` `/api/users/{id}/`
 ```json
-Response 
+Response
 
 {
     "success": true,
@@ -123,7 +123,7 @@ Response
                   "cuisine": "American",
                   "price_level": 1,
                   "locations": [
-                      { 
+                      {
                          "id": 1,
                          "city": "Boston",
                          "state": "Massachusetts",
@@ -135,7 +135,7 @@ Response
                 "..."         
         ]
     }
-} 
+}
 
 
 ```
@@ -151,7 +151,7 @@ Request
 }
 ```
 ```json
-Response 
+Response
 
 {
     "success": true,
@@ -166,7 +166,7 @@ Response
                   "cuisine": "American",
                   "price_level": 1,
                   "locations": [
-                      { 
+                      {
                          "id": 1,
                          "city": "Boston",
                          "state": "Massachusetts",
@@ -178,7 +178,7 @@ Response
                 "..."         
         ]
     }
-} 
+}
 
 
 ```
@@ -201,7 +201,7 @@ Response
                   "cuisine": "American",
                   "price_level": 1,
                   "locations": [
-                      { 
+                      {
                          "id": 1,
                          "city": "Boston",
                          "state": "Massachusetts",
@@ -213,7 +213,7 @@ Response
                 "..."         
         ]
     }
-} 
+}
 
 ```
 
@@ -229,7 +229,7 @@ Request
 }
 ```
 ```json
-Response 
+Response
 
 {
     "success": true,
@@ -242,9 +242,9 @@ Response
                "id": 1,
                   "name": "<USER INPUT FOR RESTAURANT NAME",
                   "cuisine": "<USER INPUT FOR RESTAURANT CUISINE>",
-                  "price_level": <USER INPUT FOR PRICE LEVEL (1-CHEAP, 5-EXPENSIVE)>,
+                  "price_level": "<USER INPUT FOR PRICE LEVEL (1-CHEAP, 5-EXPENSIVE)>",
                   "locations": [
-                      { 
+                      {
                          "id": 1,
                          "city": "Boston",
                          "state": "Massachusetts",
@@ -256,7 +256,7 @@ Response
                 "..."         
         ]
     }
-} 
+}
 
 
 
@@ -266,7 +266,7 @@ Response
 `GET` `/api/users/{id}/restaurants/`
 
 ```json
-Response 
+Response
 
 {
     "success": true,
@@ -277,7 +277,7 @@ Response
             "cuisine": "American",
             "price_level": 5,
             "locations": [
-                { 
+                {
                    "id": 1,
                    "city": "Boston",
                    "state": "Massachusetts",
@@ -288,16 +288,16 @@ Response
         }
         "..."
     ]       
-   
+
 }
-    
+
 ```
 
 ### Get restaurants by price level
 `GET` `/api/users/{id}/restaurants/{price_level}/
 
 ```json
-Response 
+Response
 
 {
     "success": true,
@@ -308,7 +308,7 @@ Response
             "cuisine": "American",
             "price_level": <price_level>,
             "locations": [
-                { 
+                {
                    "id": 1,
                    "city": "Boston",
                    "state": "Massachusetts",
@@ -319,9 +319,9 @@ Response
         }
         "..."
     ]       
-   
+
 }
-    
+
 ```
 
 
@@ -347,7 +347,7 @@ Response
                   }
                  "..."
              ]
-                           
+
          }
          "..."
     ]
@@ -384,19 +384,19 @@ Response
 ```json
 Request
 {
-   "city": <"USER INPUT">,
-   "state": <"USER INPUT">,
-   "zipcode" <"USER INPUT">,
-   "restaurant_id": <"USER INPUT">
+   "city": "<USER INPUT>",
+   "state": "<USER INPUT>",
+   "zipcode": "<USER INPUT>",
+   "restaurant_id": "<USER INPUT>"
 }
 ```
 ```json
 Response
 {
     "success": true,
-    "data": 
+    "data":
          {
-            "id": <USER INPUT FOR RESTAURANT ID>,
+            "id": "<USER INPUT FOR RESTAURANT ID>",
             "name": "McDonald's",
             "cuisine": "American",
             "price_level": 1
@@ -405,7 +405,7 @@ Response
                     "id": 1,
                     "city": "<USER INPUT FOR CITY>",
                     "state": "<USER INPUT FOR STATE>",
-                    "zipcode": <USER INPUT FOR ZIPCODE>
+                    "zipcode": "<USER INPUT FOR ZIPCODE>"
                  }
                  "..."
           }
